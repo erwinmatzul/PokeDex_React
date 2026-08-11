@@ -6,34 +6,37 @@ import { NavLink } from "react-router"
 
 const Personajes = () => {
 
-    const { pokemons, pokemonsFilter, setPokemonsFilter, paginados } = useContext(PokemonContext)
-    const [page, setPage] = useState(0)
+    const { pokemons, pokemonsFilter, setPokemonsFilter, paginados, page, setPage } = useContext(PokemonContext)
+
+
+    useEffect(() => {
+        setPokemonsFilter(pokemons)
+    }, [setPokemonsFilter, pokemons])
+
 
     const buscador = (e) => {
-
+     
         const pokemonEncontrado = pokemons.filter(pokemon => pokemon.name.toLowerCase().
-        includes(e.target.value.toLowerCase())).slice(0, 20)
+            includes(e.target.value.toLowerCase())).slice(0, 20)
 
         if (e.target.value == "") {
-            setPokemonsFilter(paginados[page])
+            setPokemonsFilter(pokemons)
 
         } else {
             setPokemonsFilter(pokemonEncontrado)
         }
-
     }
 
     const irAdelante = () => {
-        setPage(prev => prev + 1)
-        setPokemonsFilter(paginados[page + 1])
-        
+        setPage(prev => pokemons.length < 20 ? prev : prev + 1)
+       setPokemonsFilter(pokemons)
     }
 
     const irAtras = () => {
-        setPage(prev => prev - 1)
-        setPokemonsFilter(paginados[page - 1])
+        setPage(prev => prev == 0 ? prev : prev - 1)
+        setPokemonsFilter(pokemons)
     }
-    
+
     return (
 
         <main className="catalog-page">
@@ -60,9 +63,9 @@ const Personajes = () => {
 
                 </div>
 
-                <div>
-                    <button onClick={irAdelante}>Ir Siguiente</button>
-                    <button onClick={irAtras}>Ir Atras</button>
+                <div className="catalog-pagination">
+                    <button type="button" className="catalog-pagination-btn catalog-pagination-btn-secondary" onClick={irAtras}>← Anterior</button>
+                    <button type="button" className="catalog-pagination-btn catalog-pagination-btn-primary" onClick={irAdelante}>Siguiente →</button>
                 </div>
 
                 <Row className="g-4">

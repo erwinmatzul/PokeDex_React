@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const ApiClient = axios.create({
-    baseURL: "https://pokeapi.co/api/v2", //url de la api
-    timeout: 5000, //tiempo en espera, para esperar la respuesta de la API
+    baseURL: "https://pokeapi.co/api/v2",
+    timeout: 5000,
     headers: {
-        "Content-Type": "application/json", //Que siempre la respuesta venga en JSON
-        'Accept': 'application/json' //Acceptar los datos en JSON
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
     }
 })
 

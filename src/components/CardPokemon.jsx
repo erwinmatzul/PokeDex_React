@@ -36,11 +36,10 @@ const CardPokemon = ({ image, name, descripcion, types, id, isFavorite }) => {
                                 onClick={() => addFavorite(id)}
                                 variant={isFavorite ? 'warning' : ''}
                             >
-                                {isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+                                Agregar a favoritos
                             </Button>
 
                         }
-
 
                     </div>
                 </Card.Body>

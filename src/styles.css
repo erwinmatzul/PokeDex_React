@@ -377,6 +377,48 @@ body {
   color: #9aa4b2;
 }
 
+.catalog-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 auto 2rem;
+}
+
+.catalog-pagination-btn {
+  border: 1px solid #e2e7ef;
+  border-radius: 999px;
+  background: #fff;
+  color: #182230;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.75rem 1.1rem;
+  box-shadow: 0 0.35rem 0.9rem rgba(33, 43, 54, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.catalog-pagination-btn:hover,
+.catalog-pagination-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 0.6rem 1.2rem rgba(33, 43, 54, 0.12);
+}
+
+.catalog-pagination-btn-primary {
+  border-color: #e24747;
+  background: linear-gradient(135deg, #e24747, #ef5c5c);
+  color: #fff;
+}
+
+.catalog-pagination-btn-primary:hover,
+.catalog-pagination-btn-primary:focus {
+  box-shadow: 0 0.7rem 1.3rem rgba(226, 71, 71, 0.24);
+}
+
+.catalog-pagination-btn-secondary {
+  color: #475467;
+}
+
 .pokemon-card {
   overflow: hidden;
   border: 1px solid #e7ebf1;
